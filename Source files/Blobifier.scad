@@ -18,7 +18,7 @@ plate_width = 10;
 
 extrusion_to_bed = 60;
 
-height_above_strip = nozzle_to_toolhead_clearance_z + nozzle_max_start_height - 0.5;
+height_above_strip = nozzle_to_toolhead_clearance_z + nozzle_max_start_height - 0.7;
 
 bed_height = 38;
 
@@ -29,12 +29,12 @@ block = [extrusion_to_bed + 20, strip.y + 10, bed_height + height_above_strip];
 
 servo_pos = [20 + extrusion_to_bed - 26 - servo.y/2 - 2, 2, bed_height - servo.z - strip.z - 1 - 2];
 
-jst_connector = [10.4, 7.5, 6];
+jst_connector = [10.4, 7.5, 6.4];
 
 bucket_size = [64, 240, 23];
 bucket_wall = 2;
 
-base();
+!base();
 
 translate([20 + extrusion_to_bed - 27, 1, bed_height - strip.z - 1])
 tray();
@@ -42,7 +42,7 @@ tray();
 translate([servo_pos.x + servo.y/2, servo_pos.y + servo.y/2, servo_pos.z + servo.z])
 pivot_arm();
 
-!translate([extrusion_to_bed + 20, -bucket_size.y + 120, 0])
+translate([extrusion_to_bed + 20, -bucket_size.y + 120, 0])
 bucket();
 
 // %translate(servo_pos)
@@ -217,17 +217,17 @@ module base() {
             // cube([5, 9, 10]);
 
             // jst connector
-            translate([servo_pos.x - jst_connector.x - 1, block.y - jst_connector.y - 0.4, -0.01])
+            translate([servo_pos.x - jst_connector.x - 2, block.y - jst_connector.y - 1.2, -0.01])
             cube(jst_connector);
             
-            translate([servo_pos.x - jst_connector.x - 0.5, servo.y/2 + servo_pos.y - 2, -0.01])
-            cube([jst_connector.x - 1, block.y, jst_connector.z]);
+            translate([servo_pos.x - jst_connector.x - 1.2, servo.y/2 + servo_pos.y - 2, -0.01])
+            cube([jst_connector.x - 1.6, block.y, jst_connector.z]);
 
             // servo mounting screws
-            translate(servo_pos)
-            for(p = servo_mounts)
-            translate([p.x, p.y, p.z - 10])
-            cylinder(d = 1, h = 11);
+            // translate(servo_pos)
+            // for(p = servo_mounts)
+            // translate([p.x, p.y, p.z - 10])
+            // cylinder(d = 1, h = 11);
 
 
             // pivot room
