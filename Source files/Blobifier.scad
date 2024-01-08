@@ -3,7 +3,7 @@ $fs = 0.5;
 
 nozzle_to_toolhead_clearance_z = 1.5;
 
-nozzle_max_start_height = 2;
+nozzle_max_start_height = 0;
 
 servo = [23, 12.6, 30];
 servo_mounts = [
@@ -29,23 +29,56 @@ block = [extrusion_to_bed + 20, strip.y + 10, bed_height + height_above_strip];
 
 servo_pos = [20 + extrusion_to_bed - 26 - servo.y/2 - 2, 2, bed_height - servo.z - strip.z - 1 - 2];
 
-base();
+!base();
 
 translate([20 + extrusion_to_bed - 27, 1, bed_height - strip.z - 1])
 tray();
 
-!translate([servo_pos.x + servo.y/2, servo_pos.y + servo.y/2, servo_pos.z + servo.z])
+translate([servo_pos.x + servo.y/2, servo_pos.y + servo.y/2, servo_pos.z + servo.z])
 pivot_arm();
+
+translate([extrusion_to_bed + 20, 0, 0])
+bucket();
 
 %translate(servo_pos)
 servo();
 
+bucket_size = [64, 100, 35, 19];
+bucket_wall = 2;
+
+module bucket(){
+    difference() {
+        roundedCube(bucket_size, 5);
+
+        translate([bucket_wall, bucket_wall, bucket_wall])
+        roundedCube([bucket_size.x - bucket_wall * 2, bucket_size.y - bucket_wall * 2, bucket_size.z], 5 - bucket_wall);
+
+        translate([-1, -1, bucket_size[3]])
+        cube([bucket_size.x + 2, bucket_size.y - 41, bucket_size.z]);
+    }
+}
+
+module roundedCube(size, r){
+    
+    linear_extrude(height = size.z)
+    hull() {
+        for( p = [
+            [r, r],
+            [size.x - r, r],
+            [size.x - r, size.y - r],
+            [r, size.y - r]
+        ]){
+            translate(p)
+            circle(r = r);
+        }
+    }
+}
 
 module servo_head() {
     union() {
         for(a = [0 : 360/21 : 359])
         rotate([0, 0, a])
-        translate([2.15, 0, 0])
+        translate([2.2, 0, 0])
         cylinder(r = 0.35, h = 3, $fs = 0.2);
 
         cylinder(d = 4.3, h = 3);
@@ -187,10 +220,10 @@ module base() {
             translate([0, 3.8, bed_height - strip.z - 1 - 0.2])
             cube([20 + extrusion_to_bed + 5, strip.y + 2.4, strip.z + 1.4]);
 
-            //lip cavity
-            translate([block.x, block.y/2, block.z - height_above_strip/2 + 0.4])
-            rotate([0, 0, 45])
-            cube([5 * sqrt(2), 5 * sqrt(2), height_above_strip], center = true);
+            // //lip cavity
+            // translate([block.x, block.y/2, block.z - height_above_strip/2 + 0.4])
+            // rotate([0, 0, 45])
+            // cube([5 * sqrt(2), 5 * sqrt(2), height_above_strip], center = true);
         }
     }
 }
