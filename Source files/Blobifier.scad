@@ -29,6 +29,11 @@ block = [extrusion_to_bed + 20, strip.y + 10, bed_height + height_above_strip];
 
 servo_pos = [20 + extrusion_to_bed - 26 - servo.y/2 - 2, 2, bed_height - servo.z - strip.z - 1 - 2];
 
+jst_connector = [10.4, 7.5, 6];
+
+bucket_size = [64, 100, 35, 19];
+bucket_wall = 2;
+
 !base();
 
 translate([20 + extrusion_to_bed - 27, 1, bed_height - strip.z - 1])
@@ -40,11 +45,9 @@ pivot_arm();
 translate([extrusion_to_bed + 20, 0, 0])
 bucket();
 
-%translate(servo_pos)
-servo();
+// %translate(servo_pos)
+// servo();
 
-bucket_size = [64, 100, 35, 19];
-bucket_wall = 2;
 
 module bucket(){
     difference() {
@@ -145,21 +148,7 @@ module tray(){
 module base() {
     union() {
         // extrusion mount
-        difference() {
-            hull() {
-                translate([0, -20, 0])
-                cube([20, block.y + 40, 6]);
-
-                cube([40, block.y, 6]);
-            }
-
-            for(y = [-10, block.y + 10])
-            translate([10, y, -1]){
-                cylinder(d = 3.5, h = 8);
-                translate([0, 0, 3])
-                cylinder(d = 7, h = 6);
-            }
-        }
+        
 
         difference() {
             union() {
@@ -167,6 +156,30 @@ module base() {
 
                 translate([block.x - servo.x - 20, 0, 0])
                 cube([servo.x + 20, block.y, block.z]);
+
+                difference() {
+                    hull() {
+                        translate([0, -20, 0])
+                        cube([20, block.y + 40, 6]);
+
+                        cube([33, block.y, 6]);
+                    }
+
+                    for(y = [-10, block.y + 10])
+                    translate([10, y, -1]){
+                        cylinder(d = 3.5, h = 8);
+                        translate([0, 0, 3])
+                        cylinder(d = 7, h = 6);
+                    }
+                }
+
+                hull(){
+                    translate([20, 0, 0])
+                    cube([40, block.y, 6]);
+
+                    translate([40, 0, 0])
+                    cube([1, block.y, 20]);
+                }
             }
 
             // servo cavity
@@ -178,15 +191,22 @@ module base() {
             cube([servo.x + 10, servo.y, 50]);
 
             // servo cables
-            translate([servo_pos.x - 1, servo_pos.y + servo.y/2 - 2, -1])
-            cube([1.01, 4, 100]);
+            translate([servo_pos.x - 1.5, servo_pos.y + servo.y/2 - 2, -1])
+            cube([1.51, 4, 100]);
 
-            translate([servo_pos.x - 1, servo_pos.y + servo.y/2 - 2, -1])
-            cube([4, 20, 2]);
+            translate([servo_pos.x - jst_connector.x, servo.y/2 + servo_pos.y - 2, -0.01])
+            cube([jst_connector.x, 4, 2]);
 
             // servo plug hole
-            translate([servo_pos.x, servo_pos.y + servo.y/2 - 4.5, -1])
-            cube([5, 9, 10]);
+            // translate([servo_pos.x, servo_pos.y + servo.y/2 - 4.5, -1])
+            // cube([5, 9, 10]);
+
+            // jst connector
+            translate([servo_pos.x - jst_connector.x - 1, block.y - jst_connector.y - 0.4, -0.01])
+            cube(jst_connector);
+            
+            translate([servo_pos.x - jst_connector.x - 0.5, servo.y/2 + servo_pos.y - 2, -0.01])
+            cube([jst_connector.x - 1, block.y, jst_connector.z]);
 
             // servo mounting screws
             translate(servo_pos)
@@ -219,6 +239,7 @@ module base() {
             // tray narrow part
             translate([0, 3.8, bed_height - strip.z - 1 - 0.2])
             cube([20 + extrusion_to_bed + 5, strip.y + 2.4, strip.z + 1.4]);
+
 
             // //lip cavity
             // translate([block.x, block.y/2, block.z - height_above_strip/2 + 0.4])
