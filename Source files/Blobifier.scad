@@ -31,10 +31,10 @@ servo_pos = [20 + extrusion_to_bed - 26 - servo.y/2 - 2, 2, bed_height - servo.z
 
 jst_connector = [10.4, 7.5, 6];
 
-bucket_size = [64, 100, 35, 19];
+bucket_size = [64, 240, 23];
 bucket_wall = 2;
 
-!base();
+base();
 
 translate([20 + extrusion_to_bed - 27, 1, bed_height - strip.z - 1])
 tray();
@@ -42,7 +42,7 @@ tray();
 translate([servo_pos.x + servo.y/2, servo_pos.y + servo.y/2, servo_pos.z + servo.z])
 pivot_arm();
 
-translate([extrusion_to_bed + 20, 0, 0])
+!translate([extrusion_to_bed + 20, -bucket_size.y + 120, 0])
 bucket();
 
 // %translate(servo_pos)
@@ -50,14 +50,29 @@ bucket();
 
 
 module bucket(){
-    difference() {
-        roundedCube(bucket_size, 5);
+    union() {
+        difference() {
+            roundedCube(bucket_size, 5);
 
-        translate([bucket_wall, bucket_wall, bucket_wall])
-        roundedCube([bucket_size.x - bucket_wall * 2, bucket_size.y - bucket_wall * 2, bucket_size.z], 5 - bucket_wall);
+            translate([bucket_wall, bucket_wall, bucket_wall])
+            roundedCube([bucket_size.x - bucket_wall * 2, bucket_size.y - bucket_wall * 2, bucket_size.z], 5 - bucket_wall);
 
-        translate([-1, -1, bucket_size[3]])
-        cube([bucket_size.x + 2, bucket_size.y - 41, bucket_size.z]);
+            // translate([-1, -1, bucket_size[3]])
+            // cube([bucket_size.x + 2, bucket_size.y - 41, bucket_size.z]);
+        }
+
+        translate([-20, 20, 0])
+        hull() {
+            cube([20, 3, bucket_size.z - 5]);
+
+            translate([5, 0, 0])
+            cube([15, 3, bucket_size.z ]);
+
+            translate([5, 0, bucket_size.z - 5])
+            rotate([-90, 0, 0])
+            cylinder(r = 5, h = 3);
+            
+        }
     }
 }
 
