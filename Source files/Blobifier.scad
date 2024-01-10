@@ -96,10 +96,10 @@ module servo_head() {
     union() {
         for(a = [0 : 360/21 : 359])
         rotate([0, 0, a])
-        translate([2.2, 0, 0])
+        translate([2.35, 0, 0])
         cylinder(r = 0.35, h = 3, $fs = 0.2);
 
-        cylinder(d = 4.3, h = 3);
+        cylinder(d = 4.7, h = 3);
     }
 }
 
@@ -206,8 +206,8 @@ module base() {
             cube([servo.x + 10, servo.y, 50]);
 
             // servo cables
-            translate([servo_pos.x - 1.5, servo_pos.y + servo.y/2 - 2, -1])
-            cube([1.51, 4, 100]);
+            translate([servo_pos.x - 1.5, servo_pos.y + servo.y/2 - 3, -1])
+            cube([5, 6, 100]);
 
             translate([servo_pos.x - jst_connector.x, servo.y/2 + servo_pos.y - 2, -0.01])
             cube([jst_connector.x, 4, 2]);
@@ -256,10 +256,10 @@ module base() {
             cube([20 + extrusion_to_bed + 5, strip.y + 2.4, strip.z + 1.4]);
 
 
-            // //lip cavity
-            // translate([block.x, block.y/2, block.z - height_above_strip/2 + 0.4])
-            // rotate([0, 0, 45])
-            // cube([5 * sqrt(2), 5 * sqrt(2), height_above_strip], center = true);
+            // nozzle nudge
+            translate([block.x, block.y/2, block.z - height_above_strip/2])
+            rotate([0, 0, 45])
+            cylinder(r = 1.5, h = 2);
         }
     }
 }
