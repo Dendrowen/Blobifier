@@ -27,16 +27,18 @@ lip = [10, 10, height_above_strip, 1.5];
 
 block = [extrusion_to_bed + 20, strip.y + 10, bed_height + height_above_strip];
 
-servo_pos = [20 + extrusion_to_bed - 26 - servo.y/2 - 2, 2, bed_height - servo.z - strip.z - 1 - 2];
+servo_pos = [20 + extrusion_to_bed - 26 - servo.y/2 - 2, 2, bed_height - servo.z - strip.z - 3 - 2];
 
 jst_connector = [10.4, 7.5, 6.4];
 
-bucket_size = [64, 240, 23];
+// bucket_size = [39, 240, 19.6]; // V2 250mm
+bucket_size = [64, 240, 19.6]; // V2 300mm
+// bucket_size = [89, 240, 19.6]; //V2 350mm
 bucket_wall = 2;
 
 !base();
 
-translate([20 + extrusion_to_bed - 27, 1, bed_height - strip.z - 1])
+translate([20 + extrusion_to_bed - 27, 1, bed_height - strip.z - 3])
 tray();
 
 translate([servo_pos.x + servo.y/2, servo_pos.y + servo.y/2, servo_pos.z + servo.z])
@@ -45,8 +47,8 @@ pivot_arm();
 translate([extrusion_to_bed + 20, -bucket_size.y + 120, 0])
 bucket();
 
-// %translate(servo_pos)
-// servo();
+%translate(servo_pos)
+servo();
 
 
 module bucket(){
@@ -142,20 +144,20 @@ module tray(){
     render()
     difference() {
         union() {
-            cube([21, strip.y + 8, strip.z + 1]);
+            cube([21, strip.y + 8, strip.z + 3]);
 
             translate([0, 3, 0])
-            cube([strip.x + 21, strip.y + 2, strip.z + 1]);
+            cube([strip.x + 21, strip.y + 2, strip.z + 3]);
         }
 
-        translate([26, 4, 1])
+        translate([26, 4, 3])
         cube(strip);
 
         translate([reach/2, servo.y/2 + 1, -1])
         hull() {
-            cylinder(d = 4, h = 5);
+            cylinder(d = 4, h = 7);
             translate([0, 7.5, 0])
-            cylinder(d = 4, h = 5);
+            cylinder(d = 4, h = 7);
         }
     }
 }
@@ -212,10 +214,6 @@ module base() {
             translate([servo_pos.x - jst_connector.x, servo.y/2 + servo_pos.y - 2, -0.01])
             cube([jst_connector.x, 4, 2]);
 
-            // servo plug hole
-            // translate([servo_pos.x, servo_pos.y + servo.y/2 - 4.5, -1])
-            // cube([5, 9, 10]);
-
             // jst connector
             translate([servo_pos.x - jst_connector.x - 2, block.y - jst_connector.y - 1.2, -0.01])
             cube(jst_connector);
@@ -223,15 +221,8 @@ module base() {
             translate([servo_pos.x - jst_connector.x - 1.2, servo.y/2 + servo_pos.y - 2, -0.01])
             cube([jst_connector.x - 1.6, block.y, jst_connector.z]);
 
-            // servo mounting screws
-            // translate(servo_pos)
-            // for(p = servo_mounts)
-            // translate([p.x, p.y, p.z - 10])
-            // cylinder(d = 1, h = 11);
-
-
             // pivot room
-            translate([servo_pos.x + servo.y/2, 2 + servo.y/2, bed_height - strip.z - 1 - 2 - 3])
+            translate([servo_pos.x + servo.y/2, 2 + servo.y/2, bed_height - strip.z - 3 - 2 - 3])
             difference() {
                 cylinder(r = 11, h = 5);
 
@@ -240,26 +231,24 @@ module base() {
             }
 
             // tray room
-            translate([0, 1 - 0.2, bed_height - strip.z - 1 - 0.2])
+            translate([0, 1 - 0.2, bed_height - strip.z - 3 - 0.2])
             hull() {
-                cube([20 + extrusion_to_bed - 5, strip.y + 8.4, strip.z + 1.4]);
+                cube([20 + extrusion_to_bed - 5, strip.y + 8.4, strip.z + 3.4]);
                 
                 translate([0, 1, 1])
-                cube([20 + extrusion_to_bed - 5, strip.y + 6.4, strip.z + 1.4]);
+                cube([20 + extrusion_to_bed - 5, strip.y + 6.4, strip.z + 3.4]);
             }
-            
-            translate([0, 1.8, bed_height - strip.z - 1 - 0.2])
-            cube([20 + extrusion_to_bed - 5, strip.y + 6.4, 20]);
 
             // tray narrow part
-            translate([0, 3.8, bed_height - strip.z - 1 - 0.2])
-            cube([20 + extrusion_to_bed + 5, strip.y + 2.4, strip.z + 1.4]);
+            translate([0, 3.8, bed_height - strip.z - 3 - 0.2])
+            cube([20 + extrusion_to_bed + 5, strip.y + 2.4, strip.z + 3.4]);
 
 
             // nozzle nudge
-            translate([block.x, block.y/2, block.z - height_above_strip/2])
-            rotate([0, 0, 45])
-            cylinder(r = 1.5, h = 2);
+            translate([block.x - 1.5, block.y/2 - strip.y/2 - 1.2, block.z - height_above_strip])
+            cube([2, strip.y + 2.4, 2]);
+            // rotate([0, 0, 45])
+            // cylinder(r = 1.5, h = 2);
         }
     }
 }
