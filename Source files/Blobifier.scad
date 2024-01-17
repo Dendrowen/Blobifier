@@ -36,10 +36,10 @@ bucket_size = [64, 240, 19.6]; // V2 300mm
 // bucket_size = [89, 240, 19.6]; //V2 350mm
 bucket_wall = 2;
 
-!base();
+base();
 
 translate([20 + extrusion_to_bed - 27, 1, bed_height - strip.z - 3])
-tray();
+!tray();
 
 translate([servo_pos.x + servo.y/2, servo_pos.y + servo.y/2, servo_pos.z + servo.z])
 pivot_arm();
@@ -153,11 +153,20 @@ module tray(){
         translate([26, 4, 3])
         cube(strip);
 
-        translate([reach/2, servo.y/2 + 1, -1])
-        hull() {
-            cylinder(d = 4, h = 7);
-            translate([0, 7.5, 0])
-            cylinder(d = 4, h = 7);
+        translate([reach/2, servo.y/2 + 1, -1]){
+            hull() {
+                cylinder(d = 2, h = 7);
+                translate([0, 7.5, 0])
+                cylinder(d = 2.4, h = 7);
+            }
+            
+            translate([0, 0, 2])
+            hull() {
+                cylinder(d = 4, h = 7);
+                translate([0, 7.5, 0])
+                cylinder(d = 4, h = 7);
+            }
+
         }
     }
 }
@@ -204,7 +213,7 @@ module base() {
             servo();
 
             // servo insertion room
-            translate([servo_pos.x - 5, 2, bed_height - 16])
+            translate([servo_pos.x - 5, 2, bed_height - servo.z + 10])
             cube([servo.x + 10, servo.y, 50]);
 
             // servo cables
@@ -213,6 +222,9 @@ module base() {
 
             translate([servo_pos.x - jst_connector.x, servo.y/2 + servo_pos.y - 2, -0.01])
             cube([jst_connector.x, 4, 2]);
+            
+            translate([servo_pos.x, servo_pos.y + servo.y/2 - 5, -1])
+            cube([servo.x - 2, 10, 100]);
 
             // jst connector
             translate([servo_pos.x - jst_connector.x - 2, block.y - jst_connector.y - 1.2, -0.01])
