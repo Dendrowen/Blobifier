@@ -6,7 +6,10 @@ The Blobifier is a small device that eliminates the need for a purgeblock, makin
 ![Blobifier GIF](https://raw.githubusercontent.com/Dendrowen/Blobifier/main/Pictures/blobifier.gif)
 
 # Credit where credit is due
-The Macro is based on a version, and Nozzle Scrubber is made by Hernsl (hernsl#8860 on Discord). The device is designed around a Voron V2.4 300mm, but should work for 250mm and 350mm too. This version only supports the assembly on the rear-left of the bed. If you decide to change that, please consider contributing to the project by creating a pull request with the needed changes.
+The Macro is based on a version, and Nozzle Scrubber is made by Hernsl (hernsl#8860 on Discord). 
+
+# Who is it for?
+The device is designed around a Voron V2.4 300mm, but should work for 250mm and 350mm too. This version only supports the assembly on the rear-left of the bed. If you decide to change all this, please consider contributing to the project by creating a pull request with the needed changes.
 
 # BOM
 - 2 x M3x8 shsc (Mounting on the 2020 extrusion)
