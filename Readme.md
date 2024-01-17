@@ -3,7 +3,7 @@ Do you like the Blobifier? Consider [buying me a coffer](https://www.buymeacoffe
 # What is it?
 The Blobifier is a small device that eliminates the need for a purgeblock, making filament swaps more quick. It does this by extruding filament onto a tray creating a blob that will get ejected into a purge-bucket.
 
-![Blobifier GIF](https://raw.githubusercontent.com/Dendrowen/Blobifier/main/Pictures/blobifier.gif)
+![Blobifier GIF](https://raw.githubusercontent.com/Dendrowen/Blobifier/main/Pictures/blobifier_cropped.gif)
 
 # Credit where credit is due
 The Macro is based on a version, and Nozzle Scrubber is made by Hernsl (hernsl#8860 on Discord). 
