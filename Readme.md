@@ -1,3 +1,5 @@
+Do you like the Blobifier? Consider [buying me a coffer](https://www.buymeacoffee.com/app/dashboard)
+
 BOM:
 - 2 x M3x8 shsc (Mounting on the 2020 extrusion)
 - 2 x M3 t-nut
