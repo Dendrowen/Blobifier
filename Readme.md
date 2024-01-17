@@ -1,4 +1,4 @@
-Do you like the Blobifier? Consider [buying me a coffee](https://www.buymeacoffee.com/app/dashboard)
+Do you like the Blobifier? Consider [buying me a coffee](https://www.buymeacoffee.com/dendrowen)
 
 # What is it?
 The Blobifier is a small device that eliminates the need for a purgeblock, making filament swaps more quick. It does this by extruding filament onto a tray creating a blob that will get ejected into a purge-bucket.
