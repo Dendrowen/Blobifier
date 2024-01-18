@@ -39,7 +39,7 @@ bucket_wall = 2;
 base();
 
 translate([20 + extrusion_to_bed - 27, 1, bed_height - strip.z - 3])
-!tray();
+tray();
 
 translate([servo_pos.x + servo.y/2, servo_pos.y + servo.y/2, servo_pos.z + servo.z])
 pivot_arm();
@@ -80,7 +80,7 @@ module bucket(){
 
 module roundedCube(size, r){
     
-    linear_extrude(height = size.z)
+    // linear_extrude(height = size.z)
     hull() {
         for( p = [
             [r, r],
@@ -89,7 +89,7 @@ module roundedCube(size, r){
             [r, size.y - r]
         ]){
             translate(p)
-            circle(r = r);
+            cylinder(r = r, h = size.z);
         }
     }
 }
