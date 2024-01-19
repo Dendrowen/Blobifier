@@ -103,7 +103,7 @@ module shaker(size, pos, extend){
 
             // bottom space for base
             translate([-4, -pos.y, -3])
-            cube([100, 100, 3 + pos.z]);
+            cube([100, 100, 6]);
 
             // chamfers
             translate([extend + 10, 0, 6])
