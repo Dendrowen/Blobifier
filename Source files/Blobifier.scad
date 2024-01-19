@@ -78,9 +78,9 @@ brush();
 
 shaker_arm(select(sel_th, "size"), select(sel_th, "pos"), select(sel_th, "extend"));
 
-shaker(select(sel_th, "size"), select(sel_th, "pos"), select(sel_th, "extend"));
+!shaker(select(sel_th, "size"), select(sel_th, "pos"), select(sel_th, "extend"));
 
-!poo(select(sel_th, "pos"));
+poo(select(sel_th, "pos"));
 
 // =============================================== MODULES ==================================
 
@@ -91,28 +91,28 @@ module shaker(size, pos, extend){
         difference() {
             // clamp
             translate([-4, -4, -2])
-            roundedCube([extend + 15 + 10, size.y + 8, 9], 6);
+            roundedCube([extend + 10 + 10, size.y + 8, 14], 6);
             
             // th cavity
             translate([0, 0, 0])
-            roundedCube([extend + 15 + 10, size.y, 9], 2);
+            roundedCube([extend + 10 + 10, size.y, 14], 2);
 
             // right cutoff
-            translate([extend + 15, -4, -3])
-            cube([10, size.y + 8, 11]);
+            translate([extend + 10, -4, -3])
+            cube([10, size.y + 8, 16]);
 
             // bottom space for base
             translate([-4, -pos.y, -3])
             cube([100, 100, 3 + pos.z]);
 
             // chamfers
-            translate([extend + 15, 0, 4])
+            translate([extend + 10, 0, 6])
             rotate([0, 0, -45])
-            cube([10, 3, 8], center = true);
+            cube([10, 3, 12], center = true);
             
-            translate([extend + 15, size.y, 4])
+            translate([extend + 10, size.y, 6])
             rotate([0, 0, 45])
-            cube([10, 3, 8], center = true);
+            cube([10, 3, 12], center = true);
             
             // screw holes
             for(x = shaker_arm_toolhead_holes)
