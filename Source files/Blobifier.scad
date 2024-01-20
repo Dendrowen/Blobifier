@@ -43,6 +43,9 @@ shaker_arm_toolhead_holes = [4.5, 13.5];
 
 bucket_pos_y = 100;
 
+switch = [7.5, 13.2, 7.5];
+switch_pos = [block.x - switch.x + 0.01, block.y/2 - switch.y/2, -0.01];
+
 toolhead = "sb";
 
 th = [[
@@ -78,39 +81,45 @@ brush();
 
 shaker_arm(select(sel_th, "size"), select(sel_th, "pos"), select(sel_th, "extend"));
 
-!shaker(select(sel_th, "size"), select(sel_th, "pos"), select(sel_th, "extend"));
+shaker(select(sel_th, "size"), select(sel_th, "pos"), select(sel_th, "extend"));
 
 poo(select(sel_th, "pos"));
 
 // =============================================== MODULES ==================================
 
 module shaker(size, pos, extend){
-    render()
+    // render()
     translate([block.x + pos.x, pos.y, block.z])
     union() {
         difference() {
             // clamp
             translate([-4, -4, -2])
-            roundedCube([extend + 10 + 10, size.y + 8, 14], 6);
+            roundedCube([extend + 10 + 0, size.y + 8, 14], 6);
             
             // th cavity
             translate([0, 0, 0])
-            roundedCube([extend + 10 + 10, size.y, 14], 2);
+            roundedCube([extend + 10 + 0, size.y, 14], 2);
 
             // right cutoff
-            translate([extend + 10, -4, -3])
-            cube([10, size.y + 8, 16]);
+            difference() {
+                translate([extend + 0, -4, -3])
+                cube([10, size.y + 8, 16]);
+
+                // leave the screw holes
+                translate([0, -pos.y- 9, -2])
+                cube([18, 9, 2]);
+            }
 
             // bottom space for base
             translate([-4, -pos.y, -3])
             cube([100, 100, 6]);
 
             // chamfers
-            translate([extend + 10, 0, 6])
+            translate([extend + 0, 0, 6])
             rotate([0, 0, -45])
             cube([10, 3, 12], center = true);
             
-            translate([extend + 10, size.y, 6])
+            translate([extend + 0, size.y, 6])
             rotate([0, 0, 45])
             cube([10, 3, 12], center = true);
             
@@ -376,8 +385,11 @@ module base() {
             translate([servo_pos.x - jst_connector.x, servo.y/2 + servo_pos.y - 2, -0.01])
             cube([jst_connector.x, 4, 2]);
 
-            translate([servo_pos.x, block.y/2 - (switch.y - 1)/2, -0.01])
+            translate([servo_pos.x + servo.x, block.y/2 - (switch.y - 1)/2, -0.01])
             cube([100, switch.y - 1, switch.z]);
+            
+            translate([servo_pos.x, servo_pos.y + 1, -0.01])
+            cube([100, servo.y - 2, switch.z]);
 
             // jst connector
             translate([servo_pos.x - jst_connector.x - 2, block.y - jst_connector.y - 1.2, -0.01])
@@ -413,9 +425,6 @@ module base() {
             translate([block.x - 1.5, block.y/2 - strip.y/2 - 1.2, block.z - height_above_strip])
             cube([2, strip.y + 2.4, 2]);
 
-            switch = [7.5, 13.2, 7];
-            switch_pos = [block.x - switch.x + 0.01, block.y/2 - switch.y/2, -0.01];
-
             // switch
             translate(switch_pos)
             cube(switch);
@@ -423,8 +432,8 @@ module base() {
             // screw holes for switch
             translate(switch_pos)
             for(p = [[2, 3.3], [2, 9.9]])
-            translate(p)
-            cylinder(d = 1.5, h = 10);
+            translate([p.x, p.y, switch.z + 0.2])
+            cylinder(d = 1.5, h = 5);
             
         }
     }
