@@ -2,6 +2,14 @@ Do you like the Blobifier? Consider [buying me a coffee](https://www.buymeacoffe
 
 # 1. What is it?
 The Blobifier is a small device that eliminates the need for a purgeblock, making filament swaps more quick. It does this by extruding filament onto a tray creating a blob that will get ejected into a purge-bucket.
+## 1.1 Features
+- Turn your filament purge waste into blobs for fewer waste and quicker purging.
+- Store the blobs in a bucket then can hold up to **700 blobs!** (for the V2 350mm version)
+- Automatically pause the printer once the bucket is full.
+- Detect when the bucket is installed or missing.
+- Shake the bucket for better dispersion of the blobs in the bucket.
+- Clean your nozzle on a brass brush before resuming to print.
+
 
 ![Blobifier GIF](https://raw.githubusercontent.com/Dendrowen/Blobifier/main/Pictures/blobifier_cropped.gif)
 
