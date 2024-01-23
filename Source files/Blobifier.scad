@@ -308,7 +308,7 @@ module tray(){
 
         translate([reach/2, servo.y/2 + 1, -1]){
             hull() {
-                cylinder(d = 2, h = 7);
+                cylinder(d = 2.4, h = 7);
                 translate([0, 7.5, 0])
                 cylinder(d = 2.4, h = 7);
             }
