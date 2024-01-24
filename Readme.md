@@ -1,4 +1,4 @@
-![Blobifier Render](https://raw.githubusercontent.com/Dendrowen/Blobifier/conversion_to_step/Pictures/Render_Full.png)
+![Blobifier Render](https://raw.githubusercontent.com/Dendrowen/Blobifier/main/Pictures/Render_Full.png)
 Do you like the Blobifier? Consider [buying me a coffee](https://www.buymeacoffee.com/dendrowen)
 
 # 1. What is it?
@@ -12,7 +12,7 @@ The Blobifier is a small device that eliminates the need for a purgeblock, makin
 - Clean your nozzle on a brass brush before resuming to print.
 
 
-![Blobifier Render](https://raw.githubusercontent.com/Dendrowen/Blobifier/conversion_to_step/Pictures/Render_Base.png)
+![Blobifier Render](https://raw.githubusercontent.com/Dendrowen/Blobifier/main/Pictures/Render_Base.png)
 
 # 2. Credit where credit is due
 The Macro and Nozzle Scrubber are based on a version madde by by Hernsl (hernsl#8860 on Discord). 
