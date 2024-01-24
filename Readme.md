@@ -97,6 +97,13 @@ The device is designed around a Voron V2.4 300mm, but should work for 250mm and 
 Refer to the config files comments to configure the macro to your desires.
 
 # 7. Release notes
+## version 1.0
+- Designed from the ground up in Fusion 360.
+- Changed the way the system mounts for easy adaptation.
+- Hexagon pattern on the bucket floor! (For smoother distribution, and hexagons are bestagons).
+- Change shaker shape to better fit the Stealthburner toolhead.
+- Included supports in the mount and brim-ears for the bucket.
+- Add chamfers to most edges.
 ## version 0.3
 - Add the poo icon for multicolored prints.
 - Add a shaker arm to the bucket which the SB can slide into.
