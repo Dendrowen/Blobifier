@@ -21,32 +21,33 @@ The Macro and Nozzle Scrubber are based on a version madde by by Hernsl (hernsl#
 The device is designed around a Voron V2.4 300mm, but should work for 250mm and 350mm too. This version only supports the assembly on the rear-left of the bed. If you decide to change all this, please consider contributing to the project by creating a pull request with the needed changes.
 
 # 4. BOM
-- 3 x M3x8 shsc (Mounting on the 2020 extrusion).
-- 4 x M3x8 fhcs.
-- 3 x M3 t-nut.
-- 1 x M2x4 shsc (For the servo pivot arm).
-- 2 x M2x10 self tapping screws.
-- 4 x heat set inserts.
-- 1 x 10x15 aluminum strip.
-    - max 1.5mm thick.
-    - Make sure it's thick enough to dissipate the heat from the nozzle.
-- 1 x SG90 servo (and the included screws).
-- 1 x omron D2F-5L sized micro switch.
-- 1 x brass brush.
-- 1 x 4-pin jst connector set (male + female).
-- other connectors to wire it to the board.
+- 3 x M3x8 shsc
+- 1 x M3x25 shsc
+- 3 x M3x8 fhcs
+- 3 x M3 t-nut
+- 1 x M2x4 shsc (For the servo pivot arm)
+- 2 x M2x10 self tapping screws
+- 5 x heat set inserts
+- 1 x 10x15 aluminum strip
+    - max 1.5mm thick
+    - Make sure it's thick enough to dissipate the heat from the nozzle
+- 1 x SG90 servo (and the included screws)
+- 1 x omron D2F-5L sized micro switch
+- 1 x brass brush
+- 1 x 4-pin jst connector set (male + female)
+- other connectors and wire to connect it to the board
 
 # 5. Build instructions
 ## 5.1 Bucket
 ### 5.1.1 Printed Parts
 - **Bucket_*.stl** (whichever suits your printer)
-- **Shaker_*.stl** (whichever suits your toolhead)
-- **Shaker_Arm_*.stl** (whichever suits your toolhead)
-    - The included **Poo.stl** can be used for a multimaterial print.
+- **\*_Shaker.stl** (whichever suits your toolhead)
+- **\*_Shaker_Arm.stl** (whichever suits your toolhead)
+    - The included **\*_Shaker_arm_poo.stl** can be used for a multimaterial print.
 ### 5.1.2 Assembly
-1. Insert 4 heatset inserts in the arm.
+1. Insert 4 heatset inserts in the arm. Mind that one needs to be inserted at an angle.
 2. Screw the arm to the bucket with the *poo* being upright using 2 M3x8 fhcs screws.
-3. Screw the shaker to the arm with the opening facing the bucket using 2 M3x8 fhcs screws.
+3. Screw the shaker to the arm with the opening facing the bucket using an M3x8 fhcs and M3x8 shsc screw.
 
 ## 5.2 Brush
 ### 5.2.1 Printed Parts
@@ -81,17 +82,19 @@ The device is designed around a Voron V2.4 300mm, but should work for 250mm and 
     - pin 2: GND (any GND on your board should work)
     - pin 3: An output capable pin. Most of them are.
     - pin 4: A pin with an internal pullup resistor. Most of them have.
-11. Screw the base into place with 2 x M3x8 shcs and T-nuts onto the left 2020 extrusion. The tray should just slide behind your bed. You can temporarily insert the tray to verify the position.
-12. Turn on your printer and include the config file found in the github. Then restart the klipper firmware.
-13. run `BLOBIFIER_SERVO POS=out` in the console. You should hear your servo move.
-14. Screw the servo arm onto the servo with the arm pointing towards the brush. Make sure you don't turn the servo while doing this. If you accidentally turn it, run `BLOBIFIER_SERVO POS=out` again and continue.
-15. Insert the tray from the back until the hole in the servo arm becomes visible through the tray. Then screw it down with an M2x4 screw, then go back half a turn so the screw can rotate freely in the tray.
-16. Test the servo a couple of times with `BLOBIFIER_SERVO POS=in` and `BLOBIFIER_SERVO POS=out`. The tray should be fully inside or outside the base. If not, try to determine why.
+11. Insert a heated insert into the base mount. Only one side is suitable for it.
+12. Slide the base in the mount and secure it with an M3x25 shsc.
+13. Screw the base into place with 2 x M3x8 shcs and T-nuts onto the left 2020 extrusion. The tray should just slide behind your bed. You can temporarily insert the tray to verify the position.
+14. Turn on your printer and include the config file found in the github. Then restart the klipper firmware.
+15. run `BLOBIFIER_SERVO POS=out` in the console. You should hear your servo move.
+16. Screw the servo arm onto the servo with the arm pointing towards the brush. Make sure you don't turn the servo while doing this. If you accidentally turn it, run `BLOBIFIER_SERVO POS=out` again and continue.
+17. Insert the tray from the back until the hole in the servo arm becomes visible through the tray. Then screw it down with an M2x4 screw, then go back half a turn so the screw can rotate freely in the tray.
+18. Test the servo a couple of times with `BLOBIFIER_SERVO POS=in` and `BLOBIFIER_SERVO POS=out`. The tray should be fully inside or outside the base. If not, try to determine why.
     - There may be too much resistance in the sliding mechanism.
     - You might have screwed the m2 screw too tight.
     - The values in the config might need adjustment (unlikely)
-17. Push the switch on the base. A message that the bucket is placed should be on the screen. Then let go of the switch. A message that the bucket was removed should be on the screen.
-18. Place the bucket and see if it still works. If not, the base might need slight adjustment towards the center.
+19. Push the switch on the base. A message that the bucket is placed should be on the screen. Then let go of the switch. A message that the bucket was removed should be on the screen.
+20. Place the bucket and see if it still works. If not, the base might need slight adjustment towards the center.
 
 # 6. Configuration
 Refer to the config files comments to configure the macro to your desires.
