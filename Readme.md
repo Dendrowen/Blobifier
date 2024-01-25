@@ -8,9 +8,9 @@ The Blobifier is a small device that eliminates the need for a purgeblock, makin
 - Store the blobs in a bucket then can hold **400 blobs!** (for the V2 300mm version)
 - Automatically pause the printer once the bucket is full.
 - Detect when the bucket is installed or missing.
+    - NOTE: Empty the bucket if you remove it! The system will reset the blob counter.
 - Shake the bucket for better dispersion of the blobs in the bucket.
 - Clean your nozzle on a brass brush before resuming to print.
-
 
 ![Blobifier Render](https://raw.githubusercontent.com/Dendrowen/Blobifier/main/Pictures/Render_Base.png)
 
