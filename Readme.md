@@ -86,15 +86,16 @@ The device is designed around a Voron V2.4 300mm, but should work for 250mm and 
 12. Slide the base in the mount and secure it with an M3x25 shsc.
 13. Screw the base into place with 2 x M3x8 shcs and T-nuts onto the left 2020 extrusion. The tray should just slide behind your bed. You can temporarily insert the tray to verify the position.
 14. Turn on your printer and include the config file found in the github. Then restart the klipper firmware.
-15. run `BLOBIFIER_SERVO POS=out` in the console. You should hear your servo move.
-16. Screw the servo arm onto the servo with the arm pointing towards the brush. Make sure you don't turn the servo while doing this. If you accidentally turn it, run `BLOBIFIER_SERVO POS=out` again and continue.
-17. Insert the tray from the back until the hole in the servo arm becomes visible through the tray. Then screw it down with an M2x4 screw, then go back half a turn so the screw can rotate freely in the tray.
-18. Test the servo a couple of times with `BLOBIFIER_SERVO POS=in` and `BLOBIFIER_SERVO POS=out`. The tray should be fully inside or outside the base. If not, try to determine why.
+15. Cut off the servo arm st 10mm from the center (you don't need high precision here). You need the hole that's around 7.5-8mm from the center (3rd hole on mine). Test the m2 screw to see if you can get it in. If not, make adjustments.
+16. run `BLOBIFIER_SERVO POS=out` in the console. You should hear your servo move.
+17. Screw the servo arm onto the servo with the arm pointing towards the brush. Make sure you don't turn the servo while doing this. If you accidentally turn it, run `BLOBIFIER_SERVO POS=out` again and continue.
+18. Insert the tray from the back until the hole in the servo arm becomes visible through the tray. Then screw it down with an M2x4 screw, then go back half a turn so the screw can rotate freely in the tray.
+19. Test the servo a couple of times with `BLOBIFIER_SERVO POS=in` and `BLOBIFIER_SERVO POS=out`. The tray should be fully inside or outside the base. If not, try to determine why.
     - There may be too much resistance in the sliding mechanism.
     - You might have screwed the m2 screw too tight.
     - The values in the config might need adjustment (unlikely)
-19. Push the switch on the base. A message that the bucket is placed should be on the screen. Then let go of the switch. A message that the bucket was removed should be on the screen.
-20. Place the bucket and see if it still works. If not, the base might need slight adjustment towards the center.
+20. Push the switch on the base. A message that the bucket is placed should be on the screen. Then let go of the switch. A message that the bucket was removed should be on the screen.
+21. Place the bucket and see if it still works. If not, the base might need slight adjustment towards the center.
 
 # 6. Configuration
 Refer to the config files comments to configure the macro to your desires.
