@@ -25,14 +25,14 @@ The device is designed around a Voron V2.4 300mm, but should work for 250mm and 
 - 1 x M3x25 shsc
 - 3 x M3x8 fhcs
 - 3 x M3 t-nut
-- 1 x M2x4 shsc (For the servo pivot arm)
+- 1 x M2x6 shsc (For the servo pivot arm)
 - 2 x M2x10 self tapping screws
 - 5 x heat set inserts
 - 1 x 10x15 aluminum strip
-    - max 1.5mm thick
+    - max 1mm thick
     - Make sure it's thick enough to dissipate the heat from the nozzle
-- 1 x SG90 servo (and the included screws)
-- 1 x omron D2F-5L sized micro switch
+- 1 x SG90 or MG90 servo (and the included screws)
+- 1 x omron D2F-5L sized micro switch. Any knock-off will work.
 - 1 x brass brush
 - 1 x 4-pin jst connector set (male + female)
 - other connectors and wire to connect it to the board
@@ -63,44 +63,55 @@ The device is designed around a Voron V2.4 300mm, but should work for 250mm and 
 - **Servo_arm_*.stl** (Check which arm fits properly on your servo)
 ### 5.3.2 Assembly
 1. Glue a piece of aluminum inside the tray. Make sure the piece of aluminum is thick enough to dissipate heat from the nozzle without melting the plastic.
-2. Sand down the tray untill the top and bottom are smooth. If the aluminum pertrudes the top a bit, sand that down with it.
-3. Clean up the base where the tray slides. Depending on your printers bridging capabilities you might have to file or cut some plastic away.
-4. Test fit the tray in the base. Slide it in from the back. It should stick out 15mm if fully inserted. If operation isn't smooth, go back to step 2.
-5. Remove the tray from the base
-6. Insert the servo from above making sure the wires face the cavity meant for them and are inserted first so they come out from the bottom. It could be a tight fit, but if your printer is properly tuned you shouldn't have any trouble. Make sure you inserted it fully, you can check from the bottom.
-7. Insert the microswitch in the bottom. Check if the lever is correctly oriented. Screw it down with 2 M2x10 self tapping screws. The screw holes might be hard to see, because there is an extra layer for printability.
-8. Insert the 4-pin female JST connector iside the slot. If the fit is very loose, use some glue. 
-9. Solder the wires from the servo and the switch to this connector. The order is less important, just keep in mind that you'll have to connect the wire to the board in the same order.
+1. Sand down the tray untill the top and bottom are smooth. If the aluminum pertrudes the top a bit, sand that down with it.
+1. Remove 3 included support from the base.
+    - One in the slot for the tray
+    - Two at the bottom for the switch and jst connector
+1. Test fit the tray in the base. Slide it in from the back. It should stick out 15mm if fully inserted. If operation isn't smooth, go back to step 2.
+1. Remove the tray from the base
+1. Insert the servo from above making sure the wires face the cavity meant for them and are inserted first so they come out from the bottom. It could be a tight fit, but if your printer is properly tuned you shouldn't have any trouble. Make sure you inserted it fully, you can check from the bottom.
+1. Insert the microswitch in the bottom. Check if the lever is correctly oriented. Screw it down with 2 M2x10 self tapping screws. The screw holes might be hard to see, because there is an extra layer for printability.
+1. Insert the 4-pin female JST connector iside the slot. If the fit is very loose, use some glue. 
+1. Solder the wires from the servo and the switch to this connector. The order is less important, just keep in mind that you'll have to connect the wire to the board in the same order.
     - pin 1: VCC (Red, usually)
     - pin 2: 
         - GND from the servo (Brown, usually)
         - C from the switch (pins are marked C, NC and NO)
     - pin 3: Signal wire from servo (Orange, usually)
     - pin 4: NC from the switch
-10. Connect the base to your printer with a cable of your own making. You can drill a hole in the bottom plate of your printer to feed the wire through. **Be careful not to hit any components in your electronics compartment and ALWAYS unplug your printer from the wall if you're working on the electronics!** You'll have to pick empty pins on your board. Refer to your boards documentation on which pins to use.
+1. Connect the base to your printer with a cable of your own making. You can drill a hole in the bottom plate of your printer to feed the wire through. **Be careful not to hit any components in your electronics compartment and ALWAYS unplug your printer from the wall if you're working on the electronics!** You'll have to pick empty pins on your board. Refer to your boards documentation on which pins to use.
     - pin 1: 5V (any 5V on your board should work)
     - pin 2: GND (any GND on your board should work)
     - pin 3: An output capable pin. Most of them are.
     - pin 4: A pin with an internal pullup resistor. Most of them have.
-11. Insert a heated insert into the base mount. Only one side is suitable for it.
-12. Slide the base in the mount and secure it with an M3x25 shsc.
-13. Screw the base into place with 2 x M3x8 shcs and T-nuts onto the left 2020 extrusion. The tray should just slide behind your bed. You can temporarily insert the tray to verify the position.
-14. Turn on your printer and include the config file found in the github. Then restart the klipper firmware.
-15. Cut off the servo arm st 10mm from the center (you don't need high precision here). You need the hole that's around 7.5-8mm from the center (3rd hole on mine). Test the m2 screw to see if you can get it in. If not, make adjustments.
-16. run `BLOBIFIER_SERVO POS=out` in the console. You should hear your servo move.
-17. Screw the servo arm onto the servo with the arm pointing towards the brush. Make sure you don't turn the servo while doing this. If you accidentally turn it, run `BLOBIFIER_SERVO POS=out` again and continue.
-18. Insert the tray from the back until the hole in the servo arm becomes visible through the tray. Then screw it down with an M2x4 screw, then go back half a turn so the screw can rotate freely in the tray.
-19. Test the servo a couple of times with `BLOBIFIER_SERVO POS=in` and `BLOBIFIER_SERVO POS=out`. The tray should be fully inside or outside the base. If not, try to determine why.
+1. Insert a heated insert into the base mount. Only one side is suitable for it.
+1. Slide the base in the mount and secure it with an M3x25 shsc.
+1. Screw the base into place with 2 x M3x8 shcs and T-nuts onto the left 2020 extrusion. The tray should just slide behind your bed. You can temporarily insert the tray to verify the position.
+1. Turn on your printer and include the config file found in the github. Then restart the klipper firmware.
+1. run `BLOBIFIER_SERVO POS=out` in the console. You should hear your servo move.
+1. Screw the servo arm onto the servo with the arm pointing towards the slot. Make sure you don't turn the servo while doing this. If you accidentally turn it, run `BLOBIFIER_SERVO POS=out` again and continue.
+1. Insert the tray from the back until the hole in the servo arm becomes visible through the tray. Then screw it down with an M2x4 screw, then go back half a turn so the screw can rotate freely in the tray.
+1. Test the servo a couple of times with `BLOBIFIER_SERVO POS=in` and `BLOBIFIER_SERVO POS=out`. The tray should be fully inside or outside the base. If not, try to determine why.
     - There may be too much resistance in the sliding mechanism.
     - You might have screwed the m2 screw too tight.
     - The values in the config might need adjustment (unlikely)
-20. Push the switch on the base. A message that the bucket is placed should be on the screen. Then let go of the switch. A message that the bucket was removed should be on the screen.
-21. Place the bucket and see if it still works. If not, the base might need slight adjustment towards the center.
+1. Push the switch on the base. A message that the bucket is placed should be on the screen. Then let go of the switch. A message that the bucket was removed should be on the screen.
+1. Place the bucket and see if it still works. If not, the base might need slight adjustment towards the center.
 
 # 6. Configuration
 Refer to the config files comments to configure the macro to your desires.
 
 # 7. Release notes
+## version 1.1
+- Now fits the MG90 servo too!
+- Tray height reduced to accomodate for the MG90 servo.
+- Base servo cavity expanded for fitting an MG90.
+- Added a channel alongside the servo for wiring the microswitch.
+- Improved servo arm and removed different fits.
+- Included supports in the base for easier printing.
+- Modified the macro so it temporarily restores the feedrate to 100%.
+- Adjusted the part cooling options. You can now either set it to a desired speed, or don't change it at all.
+- Added some simple validation in the config to prevent bad values for the parameters.
 ## version 1.0
 - Designed from the ground up in Fusion 360.
 - Changed the way the system mounts for easy adaptation.
