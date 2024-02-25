@@ -40,7 +40,7 @@ The device is designed around a Voron V2.4 300mm, but should work for 250mm and 
 # 5. Build instructions
 ## 5.1 Bucket
 ### 5.1.1 Printed Parts
-- **Bucket_*.stl** (whichever suits your printer)
+- **Bucket_*.stl** (whichever suits your printer (and printbed))
 - **\*_Shaker.stl** (whichever suits your toolhead)
 - **\*_Shaker_Arm.stl** (whichever suits your toolhead)
     - The included **\*_Shaker_arm_poo.stl** can be used for a multimaterial print.
@@ -113,6 +113,7 @@ That's it. The Blobifier will now automatically be called for a purge everytime 
 ## version 1.2
 - Purge volumes are now extracted from the new Happy Hare tool map!
 - It is now advised to use the 'variables' of Happy Hare branch in conjunction with this mod.
+- Add support for wider beds (5mm extra width) ([#6](https://github.com/Dendrowen/Blobifier/issues/6))
 ## version 1.1
 - Now fits the MG90 servo too!
 - Tray height reduced to accomodate for the MG90 servo.
