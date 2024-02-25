@@ -102,7 +102,17 @@ The device is designed around a Voron V2.4 300mm, but should work for 250mm and 
 # 6. Configuration
 Refer to the config files comments to configure the macro to your desires.
 
+For maximum integration with Happy Hare, make use of the [gcode pre-processing](https://github.com/moggieuk/Happy-Hare/blob/main/doc/gcode_preprocessing.md). Make sure to include `PURGE_VOLUMES=!purge_volumes!`
+
+Add BLOBIFIER to the post_load sequence in mmu_macro_vars.cfg
+`variable_user_post_load_extension   : "BLOBIFIER"`
+
+That's it. The Blobifier will now automatically be called for a purge everytime you swap materials. Oh... don't forget to disable that filthy wipe tower.
+
 # 7. Release notes
+## version 1.2
+- Purge volumes are now extracted from the new Happy Hare tool map!
+- It is now advised to use the 'variables' of Happy Hare branch in conjunction with this mod.
 ## version 1.1
 - Now fits the MG90 servo too!
 - Tray height reduced to accomodate for the MG90 servo.
