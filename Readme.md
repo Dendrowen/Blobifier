@@ -114,6 +114,7 @@ That's it. The Blobifier will now automatically be called for a purge everytime 
 - Purge volumes are now extracted from the new Happy Hare tool map!
 - It is now advised to use the 'variables' of Happy Hare branch in conjunction with this mod.
 - Add support for wider beds (5mm extra width) ([#6](https://github.com/Dendrowen/Blobifier/issues/6))
+- Persistent blob state! Values are saved across reboots
 ## version 1.1
 - Now fits the MG90 servo too!
 - Tray height reduced to accomodate for the MG90 servo.
