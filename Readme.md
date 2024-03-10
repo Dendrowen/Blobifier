@@ -110,6 +110,10 @@ Add BLOBIFIER to the post_load sequence in mmu_macro_vars.cfg
 That's it. The Blobifier will now automatically be called for a purge everytime you swap materials. Oh... don't forget to disable that filthy wipe tower.
 
 # 7. Release notes
+## version 1.3
+- Add BLOBIFIER_PARK for use in conjuntion with Happy Hare. Parking prevents oozing.
+- Removed the retraction moves (apart from the initial one in BLOBIFIER_PARK)
+- Add a dwell time to relieve pressure from the nozzle
 ## version 1.2
 - Purge volumes are now extracted from the new Happy Hare tool map!
 - It is now advised to use the 'variables' of Happy Hare branch in conjunction with this mod.
