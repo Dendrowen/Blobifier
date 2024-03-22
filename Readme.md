@@ -14,7 +14,7 @@ The Blobifier is a small device that eliminates the need for a purgeblock, makin
 
 ![Blobifier Render](https://raw.githubusercontent.com/Dendrowen/Blobifier/main/Pictures/Render_Base.png)
 
-[![Blobifier Video](https://img.youtube.com/vi/VNMafOdnZ84/0.jpg)](https://www.youtube.com/watch?v=VNMafOdnZ84)
+[![Blobifier Video](https://img.youtube.com/vi/VNMafOdnZ84/0.jpg)](https://www.youtube.com/watch?v=VNMafOdnZ84) [![Blobifier Video](https://img.youtube.com/vi/a73EYLjRkbQ/0.jpg)](https://www.youtube.com/watch?v=a73EYLjRkbQ)
 
 # 2. Credit where credit is due
 The Macro and Nozzle Scrubber are based on a version madde by by Hernsl (hernsl#8860 on Discord). 
