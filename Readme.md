@@ -105,7 +105,7 @@ The device is designed around a Voron V2.4 300mm, but should work for 250mm and 
 # 6. Configuration
 Refer to the config files comments to configure the macro to your desires.
 
-For maximum integration with Happy Hare, make use of the [gcode pre-processing](https://github.com/moggieuk/Happy-Hare/blob/main/doc/gcode_preprocessing.md). Make sure to include `PURGE_VOLUMES=!purge_volumes!`
+For maximum integration with Happy Hare, make use of the [gcode pre-processing](https://github.com/moggieuk/Happy-Hare/wiki/Gcode-Preprocessing). Make sure to include `PURGE_VOLUMES=!purge_volumes!`
 
 Add BLOBIFIER to the post_load sequence in mmu_macro_vars.cfg
 `variable_user_post_load_extension   : "BLOBIFIER"`
