@@ -64,6 +64,7 @@ The device is designed around a Voron V2.4 300mm, but should work for 250mm and 
 - **Tray.stl**
 - **Servo_arm_*.stl** (Check which arm fits properly on your servo)
 - **Mount_*.stl** Check the mount for your printer. The V2.4 has two mounts because some beds are slightly wider(255, 305 or 355)
+- **Base_shim.stl** The tray needs to be sligtly above the bed surface (Scale Z height of the object according to your needs. Keep in mind that the higher this part is, the longer the mounting screws need to be)
 ### 5.3.2 Assembly
 1. Glue a piece of aluminum inside the tray. Make sure the piece of aluminum is thick enough to dissipate heat from the nozzle without melting the plastic.
 1. Sand down the tray untill the top and bottom are smooth. If the aluminum pertrudes the top a bit, sand that down with it.
