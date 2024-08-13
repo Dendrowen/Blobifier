@@ -30,7 +30,7 @@ The device is designed around a Voron V2.4 300mm, but should work for 250mm and 
 - 1 x M2x6 shsc (For the servo pivot arm)
 - 2 x M2x10 self tapping screws
 - 5 x heat set inserts
-- 1 x 10x15 aluminum strip
+- 1 x 10x30 aluminum strip
     - max 1mm thick
     - Make sure it's thick enough to dissipate the heat from the nozzle
 - 1 x SG90 or MG90 servo (and the included screws)
@@ -66,7 +66,7 @@ The device is designed around a Voron V2.4 300mm, but should work for 250mm and 
 - **Mount_*.stl** Check the mount for your printer. The V2.4 has two mounts because some beds are slightly wider(255, 305 or 355)
 - **Base_shim.stl** The tray needs to be sligtly above the bed surface (Scale Z height of the object according to your needs. Keep in mind that the higher this part is, the longer the mounting screws need to be)
 ### 5.3.2 Assembly
-1. Glue a piece of aluminum inside the tray. Make sure the piece of aluminum is thick enough to dissipate heat from the nozzle without melting the plastic.
+1. Glue the piece of aluminum inside the tray. It might require a little force to make it slide into the cavity. Make sure the piece of aluminum is thick enough to dissipate heat from the nozzle without melting the plastic.
 1. Sand down the tray untill the top and bottom are smooth. If the aluminum pertrudes the top a bit, sand that down with it.
 1. Remove 3 included support from the base.
     - One in the slot for the tray
@@ -113,6 +113,9 @@ Add BLOBIFIER to the post_load sequence in mmu_macro_vars.cfg
 That's it. The Blobifier will now automatically be called for a purge everytime you swap materials. Oh... don't forget to disable that filthy wipe tower.
 
 # 7. Release notes
+## version 1.4
+- Add a safe descend mode. This makes sure the toolhead can get down to the tray without hitting your prints. (requires exlude objects enabled in your slicer)
+- Change the tray to fit a 30x10x1mm aluminum strip. This will prevent the tray from sagging over time. (The old tray is still available for these that have the smaller aluminum piece)
 ## version 1.3
 - Add BLOBIFIER_PARK for use in conjuntion with Happy Hare. Parking prevents oozing.
 - Removed the retraction moves (apart from the initial one in BLOBIFIER_PARK)
