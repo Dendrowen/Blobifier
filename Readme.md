@@ -34,6 +34,7 @@ complete kit at [aliexpress](https://s.click.aliexpress.com/e/_EJ6hA4B) (Affilia
 - 1 x 10x30 aluminum strip
     - max 1mm thick
     - Make sure it's thick enough to dissipate the heat from the nozzle
+    - If you have the 'old' 10x15 strip, print the proper tray to match it.
 - 1 x SG90 or MG90 servo (and the included screws)
 - 1 x omron D2F-5L sized micro switch. Any knock-off will work.
 - 1 x brass brush
