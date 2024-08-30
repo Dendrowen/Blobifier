@@ -1,5 +1,7 @@
 ![Blobifier Render](https://raw.githubusercontent.com/Dendrowen/Blobifier/main/Pictures/Render_Full.png)
-Do you like the Blobifier? Consider [buying me a coffee](https://www.buymeacoffee.com/dendrowen)
+Do you like the Blobifier? Consider [buying me a coffee](https://www.buymeacoffee.com/dendrowen) or support me through [paypal](https://www.paypal.com/donate/?business=H88MZT7TGXNWJ&no_recurring=0&item_name=Support+my+work&currency_code=EUR)
+
+
 
 # 1. What is it?
 The Blobifier is a small device that eliminates the need for a purgeblock, making filament swaps more quick. It does this by extruding filament onto a tray creating a blob that will get ejected into a purge-bucket.
