@@ -117,6 +117,24 @@ Add BLOBIFIER to the post_load sequence in mmu_macro_vars.cfg
 That's it. The Blobifier will now automatically be called for a purge everytime you swap materials. Oh... don't forget to disable that filthy wipe tower.
 
 # 7. Release notes
+## version 1.5
+- Purge with a pulsating (and occasionally, retracting) motion. This will prevent laminar flow from occuring and purge the old filament more quicly. (Up to 30% EXTRA filament saved!)
+- Changed the blob calculation mode. The blob will now split into equal parts if it is too large (e.g. 2x85mm instead of 150mm + 20mm). This will eliminate/reduce the small blobs scattering over the buildplate.
+- Due to the above changes, certain variables have been added and removed:
+  - new:
+    - `z_raise`: The total amount the nozzle should be raised during a blob. The value should be somewhere around `iteration_z_raise * max_iterations_per_blob - triangular(iteration) * iteration_z_change`
+    - `z_raise_exp`: The rate at which the hotend reduces raising speed during a blob. `0.85` seems to be a good starting value.
+    - `purge_length_maximum`: The maximum length of the entire purge. Use `max_iterations_per_blob * max_iteration_length`.
+  - removed:
+    - `iteration_z_raise`
+    - `max_iterations_per_blob`
+    - `iteration_z_change`
+    - `max_iteration_length`
+- Revised some parameter checks to work with the new Happy Hare version 2.7
+- Add settings:
+  - `shaker_arm_z` to allow for different bed/shaker arm heights.
+  - `brush_accell` to be able to change the acceleration of the brush movement.
+- Keep in mind I do not maintain the `SW Only Blobifier.cfg`
 ## version 1.4
 - Add a safe descend mode. This makes sure the toolhead can get down to the tray without hitting your prints. (requires exlude objects enabled in your slicer)
 - Change the tray to fit a 30x10x1mm aluminum strip. This will prevent the tray from sagging over time. (The old tray is still available for these that have the smaller aluminum piece)
