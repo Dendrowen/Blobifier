@@ -25,7 +25,10 @@ The Macro and Nozzle Scrubber are based on a version madde by by Hernsl (hernsl#
 The device is designed around a Voron V2.4 300mm, but should work for 250mm and 350mm too. This version only supports the assembly on the rear-left of the bed. If you decide to change all this, please consider contributing to the project by creating a pull request with the needed changes.
 
 # 4. BOM
-complete kit at [aliexpress](https://s.click.aliexpress.com/e/_DCsTsHL) (Affiliate link)
+Complete kit at:
+- [aliexpress - Seleadlab](https://s.click.aliexpress.com/e/_DCsTsHL)
+- [aliexpress - Fysect](https://s.click.aliexpress.com/e/_Ddf2NNX)
+Parts:
 - 3 x M3x8 shsc
 - 1 x M3x25 shsc
 - 3 x M3x8 fhcs
