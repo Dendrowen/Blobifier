@@ -28,6 +28,7 @@ The device is designed around a Voron V2.4 300mm, but should work for 250mm and 
 Complete kit at:
 - [aliexpress - Seleadlab](https://s.click.aliexpress.com/e/_DCsTsHL)
 - [aliexpress - Fysect](https://s.click.aliexpress.com/e/_Ddf2NNX)
+  
 Parts:
 - 3 x M3x8 shsc
 - 1 x M3x25 shsc
