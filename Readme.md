@@ -29,6 +29,7 @@ Complete kit at:
 - [aliexpress - Seleadlab](https://s.click.aliexpress.com/e/_DCsTsHL)
 - [aliexpress - Fysect](https://s.click.aliexpress.com/e/_opb6U3d)
     - Requires other .stl files. Linked in the product description!
+- .stl files should be printed using default Voron settings
   
 Parts:
 - 3 x M3x8 shsc
